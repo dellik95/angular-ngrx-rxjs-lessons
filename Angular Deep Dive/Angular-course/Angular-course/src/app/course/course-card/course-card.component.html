@@ -1,0 +1,47 @@
+<ng-container *ngIf="course">
+  <div class="course-card" [ngClass]="getCardClasses()">
+
+    @if(!isEditMode) {
+    <div class="course-title">
+      {{ index() }} - {{ course().description }}
+    </div>
+    } @else {
+    <input [(ngModel)]="course().description">
+    }
+
+
+
+    @if (course().iconUrl) {
+    <img width="300" alt="Angular Logo" [src]="course().iconUrl">
+    }
+    @else {
+    <img width="300" alt="Angular Logo" src="../../assets/empty-image.png" />
+    }
+
+
+    <div class="course-description" (dblclick)="changeMode()">
+      {{ course().longDescription }}
+    </div>
+
+    <div class="course-category">
+      <div class="category" i18n>
+        {
+          course().category,
+          select,
+          BEGINNER {Beginner}
+          INTERMEDIATE {Intermediate}
+          ADVANCED {Advanced}
+
+        }
+      </div>
+    </div>
+
+    <button (click)="onViewClick()">View course</button>
+
+    @if(isEditMode) {
+    <button (click)="onSaveClick()">Save course</button>
+    }
+
+  </div>
+
+</ng-container>

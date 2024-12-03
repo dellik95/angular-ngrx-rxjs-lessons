@@ -1,0 +1,26 @@
+
+.top-menu {
+    background: #1976d2;
+    padding: 2px 15px;
+}
+
+.logo {
+  max-height: 55px;
+}
+
+
+.courses {
+    max-width: 400px;
+    margin: 50px auto;
+}
+
+
+.is-hightlighted {
+  border: 1px solid red;
+}
+
+.content-body {
+    height: 100vh;
+    border: 1px solid red;
+    margin: 15px 15px 15px 15px;
+}

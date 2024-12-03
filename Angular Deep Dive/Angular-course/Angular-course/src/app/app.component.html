@@ -1,0 +1,49 @@
+<div class="top-menu">
+
+    <img class="logo" src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png">
+
+</div>
+
+<!-- (on timer(15s); prefetch on timer(10s))-->
+<!-- (on idle; prefetch on idle) = default-->
+<!-- (on immediate; prefetch on immediate)-->
+<!-- (on immediate; prefetch on timer....) can use combination -->
+<!-- (on immediate; prefetch on timer....) can use combination -->
+<!-- (on viewport) -->
+<!-- (on interaction) -->
+
+
+<div class="demo">
+    <button (click)="onPrefetchClick()">Prefetch content !!! </button>
+    <button (click)="onDisplayClick()">Dispaly content !!! </button>
+</div>
+
+<div class="courses" *ngIf="(courses$ | async) as courses">
+
+    @defer(when display; prefetch when prefetchData) {
+
+    @for (course of courses; track trackCourse; let index = $index) {
+
+    <course-card [course]="course" [index]="index" (onViewClick)="onViewClick($event)" (onCourseChanged)="onCourseSave($event)" />
+
+    } @empty {
+
+    <div>No courses found!</div>
+
+    }
+
+    } @placeholder {
+
+    <div class="demo">Placeholder ....</div>
+
+    } @loading(minimum 3s; after 1s) {
+
+    <div class="demo">Loading ....</div>
+
+    } @error {
+
+    <div class="demo">Some error while loading ....</div>
+
+    }
+</div>
+
